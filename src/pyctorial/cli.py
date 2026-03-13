@@ -1,5 +1,5 @@
 import argparse
-from . import load, save, halftone, halftone_svg, noisy_gradient, slice, gradient_stretch
+from . import load, save, halftone, halftone_svg, noisy_gradient, slice, gradient_stretch, save_svg
 
 
 def main():
@@ -173,8 +173,7 @@ def main():
             invert=args.invert
         )
 
-        with open(args.output, "w") as f:
-            f.write(svg)
+        save_svg(svg, args.output)
 
     elif args.command == "noisy-gradient":
 

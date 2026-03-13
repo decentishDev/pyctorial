@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyctorial"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python tools for generating patterns and manipulating images"
 authors = [{name="Matthew Lundeen"}]
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.7"
 dependencies = [
     "numpy",
     "pillow"

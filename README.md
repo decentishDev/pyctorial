@@ -168,8 +168,7 @@ Returns an SVG string.
 ```python
 svg = px.halftone_svg(img)
 
-with open("dots.svg", "w") as f:
-    f.write(svg)
+px.save_svg(svg)
 ```
 
 ### Example with parameters
