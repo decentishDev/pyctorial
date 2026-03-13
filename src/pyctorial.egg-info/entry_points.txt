@@ -1,0 +1,2 @@
+[console_scripts]
+pyctorial = pyctorial.cli:main
