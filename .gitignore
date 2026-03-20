@@ -1,0 +1,24 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.cpython-313.pyc
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+src/pyctorial.egg-info/
+
+# IDEs
+.vscode/
+.idea/
+
+# MacOS
+.DS_Store

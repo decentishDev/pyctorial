@@ -122,7 +122,7 @@ def main():
     stretch_parser.add_argument(
         "--width-multiplier",
         type=float,
-        default=2.0
+        default=1.0
     )
 
     stretch_parser.add_argument(
@@ -133,14 +133,14 @@ def main():
 
     stretch_parser.add_argument(
         "--growth-base",
-        type=int,
-        default=2
+        type=float,
+        default=1.3
     )
 
     stretch_parser.add_argument(
         "--max-anchors",
         type=int,
-        default=40
+        default=100
     )
 
     args = parser.parse_args()

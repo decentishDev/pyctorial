@@ -111,6 +111,7 @@ img = px.load("photo.jpg", mode="L")
 
 ```python
 px.save(img, "output.png")
+px.save_svg(svg_str, "output.svg")
 ```
 
 ---

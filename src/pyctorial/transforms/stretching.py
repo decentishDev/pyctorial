@@ -5,9 +5,9 @@ from tqdm import tqdm
 def gradient_stretch(
     img: Image.Image,
     x_start: int,
-    width_multiplier: float = 2.0,
+    width_multiplier: float = 1.0,
     base_spacing: int = 1,
-    growth_base: int = 2,
+    growth_base: float = 1.3,
     max_anchors: int = 40,
     show_progress: bool = True,
 ):

@@ -85,17 +85,12 @@ def halftone_svg(img, cell_size=12, max_dot_ratio=0.9, invert=False):
                 )
 
     svg = f"""
-<svg xmlns="http://www.w3.org/2000/svg"
-width="{canvas_w}" height="{canvas_h}"
-viewBox="0 0 {canvas_w} {canvas_h}">
-<rect width="100%" height="100%" fill="black"/>
-{''.join(circles)}
-</svg>
-"""
+        <svg xmlns="http://www.w3.org/2000/svg"
+        width="{canvas_w}" height="{canvas_h}"
+        viewBox="0 0 {canvas_w} {canvas_h}">
+        <rect width="100%" height="100%" fill="black"/>
+        {''.join(circles)}
+        </svg>
+        """
 
     return svg
-
-
-def save_svg(svg_string, path):
-    with open(path, "w") as f:
-        f.write(svg_string)
