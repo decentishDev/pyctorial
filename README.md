@@ -10,6 +10,7 @@ pip install pyctorial
 * Halftone rendering (bitmap and vector)
 * Image slicing
 * Gradient stretching
+* Pattern generation
 * Programmatic image pipelines
 
 It is designed to work both:
@@ -238,6 +239,48 @@ img = px.noisy_gradient(
 
 ---
 
+# Increasing Squares
+
+Creates a **pattern of squares** with increasing density from left to right.
+
+Squares appear randomly with probability increasing across the width.
+
+## Python Example
+
+```python
+import pyctorial as px
+
+img = px.increasing_squares(
+    width=1200,
+    height=800,
+    cell_size=20
+)
+
+px.save(img, "squares.png")
+```
+
+### Parameters
+
+| Parameter    | Description              |
+| ------------ | ------------------------ |
+| `width`      | Output width             |
+| `height`     | Output height            |
+| `cell_size`  | Size of each square cell |
+| `color`      | RGBA color tuple         |
+
+### Example
+
+```python
+img = px.increasing_squares(
+    800,
+    600,
+    cell_size=15,
+    color=(255, 0, 0, 128)
+)
+```
+
+---
+
 # Transforms
 
 Transforms reshape an image spatially.
@@ -364,6 +407,24 @@ pyctorial noisy-gradient gradient.png \
 
 ---
 
+# CLI: Increasing Squares
+
+```
+pyctorial increasing-squares output.png
+```
+
+Example:
+
+```
+pyctorial increasing-squares squares.png \
+    --width 800 \
+    --height 600 \
+    --cell-size 15 \
+    --color 255,0,0,128
+```
+
+---
+
 # CLI: Slice
 
 ```
@@ -438,6 +499,20 @@ px.save(img, "abstract.png")
 
 ---
 
+# Square Pattern Halftone
+
+```python
+import pyctorial as px
+
+img = px.increasing_squares(1200, 800, 20)
+
+img = px.halftone(img)
+
+px.save(img, "square_halftone.png")
+```
+
+---
+
 # Module Structure
 
 ```
@@ -446,7 +521,8 @@ pyctorial
 │   └── halftone
 │
 ├── generate
-│   └── noisy_gradient
+│   ├── noisy_gradient
+│   └── increasing_squares
 │
 ├── transforms
 │   ├── slice

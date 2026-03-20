@@ -1,5 +1,5 @@
 import argparse
-from . import load, save, halftone, halftone_svg, noisy_gradient, slice, gradient_stretch, save_svg
+from . import load, save, halftone, halftone_svg, noisy_gradient, slice, gradient_stretch, save_svg, increasing_squares
 
 
 def main():
@@ -143,6 +143,21 @@ def main():
         default=100
     )
 
+    # -----------------------------
+    # INCREASING SQUARES
+    # -----------------------------
+    squares_parser = sub.add_parser(
+        "increasing-squares",
+        help="Generate increasing squares pattern"
+    )
+
+    squares_parser.add_argument("output")
+
+    squares_parser.add_argument("--width", type=int, default=1200)
+    squares_parser.add_argument("--height", type=int, default=800)
+    squares_parser.add_argument("--cell-size", type=int, default=20)
+    squares_parser.add_argument("--color", type=str, default="0,0,0,255")
+
     args = parser.parse_args()
 
     # ====================================
@@ -212,6 +227,23 @@ def main():
         )
 
         save(result, args.output)
+
+    elif args.command == "increasing-squares":
+
+        # Parse color from string to tuple
+        color_parts = args.color.split(',')
+        if len(color_parts) != 4:
+            raise ValueError("Color must be in format r,g,b,a")
+        color = tuple(int(c) for c in color_parts)
+
+        img = increasing_squares(
+            width=args.width,
+            height=args.height,
+            cell_size=args.cell_size,
+            color=color
+        )
+
+        save(img, args.output)
 
 
 if __name__ == "__main__":

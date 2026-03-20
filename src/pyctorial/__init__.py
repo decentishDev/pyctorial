@@ -1,7 +1,7 @@
 from .io import load, save, save_svg
 
 from .filters import halftone, halftone_svg
-from .generate import noisy_gradient
+from .generate import noisy_gradient, increasing_squares
 from .transforms import slice, gradient_stretch
 
 __all__ = [
@@ -13,4 +13,5 @@ __all__ = [
     "slice",
     "gradient_stretch",
     "save_svg",
+    "increasing_squares",
 ]
